@@ -1,0 +1,6 @@
+remoteUECexe:
+	rsync -arvz --exclude-from 'cplaneExcludeFileList.txt' --exclude lteDo ./ linhu@10.131.138.167:/cplane/linhu/trunk/
+	ssh linhu@10.131.138.167 'cd /cplane/linhu/trunk; make UECexe'
+	rsync -arvz linhu@10.131.138.167:/cplane/linhu/trunk/ --exclude-from 'cplaneExcludeFileList.txt' ../trunk
+clean:
+	ssh linhu@10.131.138.167 'cd /cplane/linhu/trunk; make clean'
